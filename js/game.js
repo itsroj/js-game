@@ -7,10 +7,10 @@ class Game {
         this.player = new Player(
             this.gameScreenElement, 
             550, 
-            690, 
-            103, 
-            109, 
-            "./images/player.png"); // constructor of Player inside the parenthesis
+            635, 
+            196, 
+            218, 
+            "./images/player1.png"); // constructor of Player inside the parenthesis
         this.height = 800;
         this.width = 1200;
         this.obstacles = [];        // array of enemies

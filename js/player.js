@@ -23,6 +23,12 @@ class Player {
 
     move(){
         this.positionLeft += this.directionX;
+    if (this.positionLeft < 60) {
+        this.positionLeft = 60
+    }
+    if (this.positionLeft + this.width > 1155) {
+        this.positionLeft = 1155 - this.width
+    }
         this.updatePosition();
     };
 
