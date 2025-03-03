@@ -1,0 +1,49 @@
+// handles the game
+class Game {
+    constructor() {
+        this.startScreenElement = document.getElementById("game-intro");
+        this.gameScreenElement = document.getElementById("game-screen");
+        this.gameOverScreenElement = document.getElementById("game-end");
+        this.player = new Player(
+            this.gameScreenElement, 
+            550, 
+            690, 
+            103, 
+            109, 
+            "./images/player.png"); // constructor of Player inside the parenthesis
+        this.height = 800;
+        this.width = 1200;
+        this.obstacles = [];        // array of enemies
+        this.score = 0;
+        this.lives = 3;
+        this.gameIsOver = false;
+        this.gameIntervalId = null; 
+        this.gameLoopFrequency = Math.round(1000/60);
+    }
+
+    start() {
+        // set height & width of game screen
+        this.gameScreenElement.style.height = `${this.height}px`
+        this.gameScreenElement.style.width = `${this.width}px`
+
+        // hide start screen and show game screen
+        this.startScreenElement.style.display = 'none';
+        this.gameScreenElement.style.display = 'block';
+        this.gameIntervalId = setInterval(() => {
+            this.gameLoop();
+        }, this.gameLoopFrequency);
+    }
+
+    gameLoop() {
+        this.update();
+
+        // check if the game is over
+        if (this.gameIsOver) {
+            clearInterval(this.gameIntervalId)
+        }
+    }
+
+    update() {
+        this.player.move()
+    }
+}

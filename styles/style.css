@@ -1,0 +1,129 @@
+body {
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+  }
+  
+  main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert die Kindelemente horizontal */
+  }
+  
+  #game-intro {
+    position: relative;
+    width: 1200px;
+    height: 800px; /* Oder die gleiche Höhe wie dein game-screen */
+    background-image: url('../images/path-forest.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Alternative Zentrierungsmethode */
+    /* Entferne Padding, wenn vorhanden */
+    padding: 0;
+  }
+  
+  #game-intro .logo-img {
+    display: none; /* Verstecke das Bild-Element, da wir es als Hintergrund verwenden */
+  }
+  
+  #game-intro button, #game-intro p {
+    position: relative; /* Diese Elemente werden über dem Hintergrund angezeigt */
+    z-index: 10;
+  }
+  
+  #start-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Stelle sicher, dass beide Container die gleiche Höhe haben */
+    display: flex;
+    justify-content: center;
+    /* Entferne Padding, um Verschiebung zu vermeiden */
+    padding: 0;
+  }
+  
+  #game-screen {
+    display: none;
+    align-content: center;
+    /* Setze die gleichen Dimensionen wie #game-intro */
+    width: 1200px;
+    height: 800px;
+    overflow: hidden;
+    position: relative;
+    background-image: url(../images/path-forest.jpg);
+    background-size: cover;
+    background-position: center;
+    /* Entferne Padding, um Verschiebung zu vermeiden */
+    padding: 0;
+  }
+  
+  @keyframes slide {
+    0% {
+      background-position: 0 -1000px;
+    }
+    95% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 50px;
+    }
+  }
+  
+  #game-end {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/path-forest-game-over.png');
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #game-end .logo-img {
+    display: none;
+  }
+  
+  .game-intro p {
+    font-size: 18px;
+    font-family: "Verdana";
+  }
+  
+  .logo-img {
+    width: 350px;
+  }
+  
+  .arrows-img {
+    width: 150px;
+  }
+  
+  body button {
+    font-size: 20px;
+    background-color: #03581a;
+    color: #fff;
+    padding: 10px 20px;
+    border: 0;
+    box-shadow: 0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
