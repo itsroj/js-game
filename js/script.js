@@ -14,12 +14,19 @@ window.onload = function () {  // means: call this function when all the assets 
 // keyboard event listeners
     window.addEventListener('keydown', (event) => {
         if (event.code === "ArrowLeft") {
-            ourNewGame.player.directionX = -6;
+            ourNewGame.player.directionX = -8;          // moving speed of player
         }
         else if (event.code === "ArrowRight") {
-            ourNewGame.player.directionX = 6;
+            ourNewGame.player.directionX = 8;           // moving speed of player
         }
     })
+
+// adding this event listener, to react to the release of the buttons
+    window.addEventListener('keyup', (event) => {
+        if (event.code === "ArrowLeft" || event.code === "ArrowRight") {
+            ourNewGame.player.directionX = 0; // stops the movement when a button is released
+        }
+    });
 
 // all functions
     function startGame() {

@@ -6,7 +6,6 @@ class Player {
         this.width = playerWidth;
         this.height = playerHeight;
         this.directionX = 0;
-        // this.directionY = 0;
         this.element = document.createElement('img');
         this.element.src = playerImageSrc;
         this.element.style.position = 'absolute';       // doesn't respect other elements (moves around freely)
@@ -33,11 +32,22 @@ class Player {
     };
 
     updatePosition(){
-        // this.element.style.top = `${this.positionTop}px`;
         this.element.style.left = `${this.positionLeft}px`;
     };
 
     didCollide(obstacle){
-
+        const playerRect = this.element.getBoundingClientRect();
+        const obstacleRect = obstacle.element.getBoundingClientRect();
+    
+        if (                                            // if one item touches the other item
+          playerRect.left < obstacleRect.right &&
+          playerRect.right > obstacleRect.left &&
+          playerRect.top < obstacleRect.bottom &&
+          playerRect.bottom > obstacleRect.top
+        ) {
+          return true;
+        } else {
+          return false;
+        }
     };
 }
