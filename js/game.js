@@ -10,10 +10,10 @@ class Game {
             635, 
             196, 
             218, 
-            "./images/player1.png"); // constructor of Player inside the parenthesis
+            "./images/player4.png"); // constructor of Player inside the parenthesis
         this.height = 800;
         this.width = 1200;
-        this.obstacles = [];        // array of enemies
+        this.obstacles = [new Obstacle(this.gameScreenElement)];        // array of enemies
         this.score = 0;
         this.lives = 3;
         this.gameIsOver = false;
@@ -44,6 +44,11 @@ class Game {
     }
 
     update() {
-        this.player.move()
+        this.player.move()  // this moves the player
+        // this moves all of the obstacles inside the this.obstacle array:
+        for (let i=0; i<this.obstacles.length; i++){
+            const currentObstacle = this.obstacles[i];
+            currentObstacle.move();
+        }
     }
 }

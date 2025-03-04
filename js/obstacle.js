@@ -1,13 +1,11 @@
 class Obstacle {
     constructor(gameScreenElement) {
-        this.possibleXPositions = [80, 270, 80, 80, 270];
-        this.randomIndex = Math.floor(
-            Math.random() * this.possibleXPositions.length
-        );
-        this.left = this.possibleXPositions[this.randomIndex];
-        this.top = -300;
-        this.width = 200;
-        this.height = 200;
+        // random position
+        const maxLeft = 1100; // screen (1200) - Obstacle-width (60) - some space
+        this.left = Math.floor(Math.random() * maxLeft);
+        this.top = 30; //-300;
+        this.width = 60;
+        this.height = 60;
         this.element = document.createElement("img");
         this.element.src = "./images/bone.png";
         this.element.style.position = "absolute";
@@ -16,13 +14,15 @@ class Obstacle {
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
         
-        // Stellen sicher, dass gameScreenElement als Parameter übergeben wird
         gameScreenElement.appendChild(this.element);
     }
     
-    // Füge eine Methode hinzu, um das Obstacle zu bewegen (falls benötigt)
-    move() {
-        this.top += 5; // Beispielgeschwindigkeit
-        this.element.style.top = `${this.top}px`;
+    move () {
+        this.top += 4;          // moving speed of obstacle
+        this.updatePosition();
+    }
+
+    updatePosition() {
+        this.element.style.top = `${this.top}px`        // what actually moves the img tag (but need to call the move method in the obstacle > game.js >update())
     }
 }

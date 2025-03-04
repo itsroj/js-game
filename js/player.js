@@ -1,6 +1,6 @@
 class Player {
-    constructor(gameScreen, positionLeft, positionTop, playerWidth, playerHeight, playerImageSrc) {
-        this.gameScreen = gameScreen;
+    constructor(gameScreenElement, positionLeft, positionTop, playerWidth, playerHeight, playerImageSrc) {
+        // this.gameScreenElement = gameScreenElement;
         this.positionLeft = positionLeft;
         this.positionTop = positionTop;
         this.width = playerWidth;
@@ -18,7 +18,7 @@ class Player {
 
 
         // after creating the img element and setting the properties
-        gameScreen.appendChild(this.element)       // add it to the game screen
+        gameScreenElement.appendChild(this.element)       // add it to the game screen
     }
 
     move(){
