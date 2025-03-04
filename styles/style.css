@@ -57,6 +57,49 @@ body {
     justify-content: center;
     padding: 0; /* padding to 0 to make sure nothing moves */
   }
+
+  /* Hide stats bar when game-intro is visible */
+  #game-intro:not([style*="display: none"]) ~ #game-container {
+  display: none;
+  }
+  
+  /* Stats Bar at the top */
+  #game-container > div:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; /* making sure its over other elements */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(76, 175, 80, 0.7); 
+    padding: 5px 20px;
+    height: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* h2 and p-elements in one line */
+  #game-container > div:first-child h2,
+  #game-container > div:first-child p {
+    margin: 0 10px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(15, 29, 0, 0.927);
+    display: inline-block; /* one line */
+  }
+  
+  /* style the "Stats" (or even hide it?) */
+  #game-container > div:first-child h2 {
+    font-size: 16px;
+    margin-right: 20px;
+  }
+  
+  /* Style for span-element (value) */
+  #game-container > div:first-child span {
+    font-weight: bold;
+    margin-left: 5px;
+  }
   
   #game-screen {
     display: none;

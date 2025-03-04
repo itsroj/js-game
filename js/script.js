@@ -11,6 +11,10 @@ window.onload = function () {  // means: call this function when all the assets 
         startGame();
     });
 
+    restartButtonElement.addEventListener("click", () =>{
+        window.location.reload();               // "refresh" the page
+    })
+
 // keyboard event listeners
     window.addEventListener('keydown', (event) => {
         if (event.code === "ArrowLeft") {
