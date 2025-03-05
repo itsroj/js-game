@@ -18,10 +18,10 @@ window.onload = function () {  // means: call this function when all the assets 
 // keyboard event listeners
     window.addEventListener('keydown', (event) => {
         if (event.code === "ArrowLeft") {
-            ourNewGame.player.directionX = -14;          // MOVING SPEED OF PLAYER
+            ourNewGame.player.directionX = -16;          // MOVING SPEED OF PLAYER
         }
         else if (event.code === "ArrowRight") {
-            ourNewGame.player.directionX = 14;           // MOVING SPEED OF PLAYER
+            ourNewGame.player.directionX = 16;           // MOVING SPEED OF PLAYER
         }
     })
 
@@ -46,7 +46,7 @@ window.onload = function () {  // means: call this function when all the assets 
         
         // Check if timeRemaining exists and is a number, use default if not
         if (typeof ourNewGame.timeRemaining !== 'number') {
-            ourNewGame.timeRemaining = 6; // TIME REMAINING IN TOTAL
+            ourNewGame.timeRemaining = 60; // TIME REMAINING IN TOTAL
         }
 
         // Update time display
@@ -85,8 +85,8 @@ window.onload = function () {  // means: call this function when all the assets 
     }
 
     function seeResult(){
-        scoreElement = document.getElementById("result");
-        totalScore = ourNewGame.score;
+        const scoreElement = document.getElementById("result");
+        const totalScore = ourNewGame.score || 0;       // default to 0 if score is undefined
         scoreElement.innerText = totalScore;
     };
 }

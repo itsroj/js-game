@@ -1,4 +1,6 @@
 body {
+    background-image: url("../images/clouds.jpeg");
+    background-size: cover;
     padding: 0;
     text-align: center;
     margin: 0;
@@ -18,7 +20,7 @@ body {
     position: relative;
     width: 1200px;
     height: 800px;
-    background-image: url('../images/path-forest.jpg');
+    background-image: url('../images/forest-path-pngformat.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -124,7 +126,7 @@ body {
     height: 800px;
     overflow: hidden;
     position: relative;
-    background-image: url(../images/path-forest.jpg);
+    background-image: url(../images/forest-path-pngformat.png);
     background-size: cover;
     background-position: center;
     padding: 0;
@@ -147,7 +149,7 @@ body {
     position: relative;
     width: 1200px;
     height: 800px; 
-    background-image: url('../images/path-forest.jpg'); /* big picture in background */
+    background-image: url('../images/forest-path-pngformat.png'); 
     background-size: cover;
     background-position: center;
     

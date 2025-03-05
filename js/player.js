@@ -6,6 +6,11 @@ class Player {
         this.width = playerWidth;
         this.height = playerHeight;
         this.directionX = 0;
+        this.eat = new Audio("./assets/eating-sound.mp3");
+        this.eat.volume = 0.1; // not so loud
+        this.bark = new Audio("./assets/dog-barks.wav");
+        this.bark.volume = 0.1; // not so loud
+        // image
         this.element = document.createElement('img');
         this.element.src = playerImageSrc;
         this.element.style.position = 'absolute';       // doesn't respect other elements (moves around freely)

@@ -68,6 +68,7 @@ class Game {
 
             // check if obstacle is colliding with the player 
             if(this.player.didCollide(currentObstacle)){
+                this.player.eat.play();  // play eating sound
                 this.obstacles.splice(i,1)      // cut out the aten item in js
                 i--;                        // need to take the i and move it back once
                 currentObstacle.element.remove();   // cut out the aten item img
@@ -95,6 +96,7 @@ class Game {
 
             // check if obstacle is colliding with the player 
             if(this.player.didCollide(currentObstacle)){
+                this.player.bark.play();
                 this.badObstacles.splice(i,1)      // cut out the enemy item in js
                 i--;                        // need to take the i and move it back once
                 currentObstacle.element.remove();   // cut out the enemy item img
