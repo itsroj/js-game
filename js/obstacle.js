@@ -20,7 +20,7 @@ class Obstacle {
     }
     
     move () {
-        this.top += 5;          // MOVING SPEED OF OBSTACLE
+        this.top += 8;          // MOVING SPEED OF OBSTACLE
         this.updatePosition();
     }
 

@@ -37,6 +37,22 @@ body {
     position: relative; /* these elements will be displayed over the background */
     z-index: 10;
   }
+
+  #introduction {
+    background-color: rgba(61, 61, 61, 0.632); 
+    color: white;
+    padding: 10px; 
+    margin: 20px;
+    border-radius: 5px;
+  }
+
+  #introduction ul {
+    text-align: left;
+  }
+
+  #titleLogo {
+    width: 300px;
+  }
   
   #start-button {
     padding: 10px 20px;
@@ -161,9 +177,14 @@ body {
     cursor: pointer;
   }
   
-  #game-end .logo-img {
-    display: none; /* hiding the img element, since we use the background */
+  #game-end p {
+    color: white;
+    font-size: 2em;
   }
+
+  /* #game-end .logo-img {
+    display: none; /* hiding the img element, since we use the background 
+  } */
   
   .game-intro p {
     font-size: 18px;

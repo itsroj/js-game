@@ -14,8 +14,18 @@
         <div id="game-intro">
             <img src="./images/path-forest.jpg" alt="" class="logo-img"/>
             <br/>
+            <img id="titleLogo" src="./images/titleLogo.png" alt="title Logo"/>
+            <div id="introduction">
+                <h2>Help Yuki collect delicious treats and avoid her biggest fears!</h2>
+                <ul>
+                    <li>Use the left and right arrow keys to move</li>
+                    <li>Collect 10 bones or apples within 1 minute to win</li>
+                    <li><u style= "font-weight: bold;">Watch out for enemies! </u>The postman and the vacuum cleaner each take 1 life if they catch you</li>
+                </ul>
+            <h3>Can you help Yuki conquer her challenges? Let’s go! 🦴🍏🐶</h3>
+            </div>
+            
             <button id="start-button">Start Game</button>
-            <p>Use arrow keys to control the dog</p>
         </div>
 
         <div id="game-container">
@@ -31,9 +41,10 @@
 
         <!-- game end (should be hidden with css display: none)-->
         <div id="game-end">
-            <img src="./images/path-forest-game-over.png" alt="" class="logo-img"/>
+            <!-- <img src="./images/path-forest-game-over.png" alt="" class="logo-img"/> -->
             <h1>Game Over</h1>
             <br/>
+            <p>Your Score: <span id="result">x</span></p>
             <button id="restart-button">Restart</button>
         </div>
 
