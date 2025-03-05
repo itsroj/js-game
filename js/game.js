@@ -6,17 +6,18 @@ class Game {
         this.gameOverScreenElement = document.getElementById("game-end");
         this.scoreElement = document.getElementById("score");
         this.livesElement = document.getElementById("lives");
-        this.timeElement = document.getElementById("time");
+        this.timeRemainingElement = 60; // timeRemaining; // document.getElementById("timeRemaining");
         this.player = new Player(
             this.gameScreenElement, 
             550, 
-            635, 
-            196, 
-            218, 
-            "./images/player4.png"); // constructor of Player inside the parenthesis
+            650, 
+            150, 
+            150, 
+            "./images/player3.png"); // constructor of Player inside the parenthesis
         this.height = 800;
         this.width = 1200;
-        this.obstacles = []; // [new Obstacle(this.gameScreenElement)];    // array of enemies
+        this.obstacles = []; // [new Obstacle(this.gameScreenElement)];    // array of obstacles
+        this.badObstacles = [];
         this.score = 0;
         this.lives = 3;
         this.gameIsOver = false;
@@ -45,6 +46,10 @@ class Game {
             this.obstacles.push(new Obstacle(this.gameScreenElement));
         }
 
+        if(this.counter % 200 === 0){        // pushes a bad obstacle eg. every second if 60 === 0
+            this.badObstacles.push(new BadObstacle(this.gameScreenElement));
+        }
+
         this.update();
 
         // check if the game is over
@@ -55,6 +60,7 @@ class Game {
 
     update() {
         this.player.move()  // this moves the player
+
         // this moves all of the obstacles inside the this.obstacle array:
         for (let i=0; i<this.obstacles.length; i++){
             const currentObstacle = this.obstacles[i];
@@ -69,7 +75,7 @@ class Game {
                 this.score++;                       // collecting points after catching item
                 this.scoreElement.innerText = this.score; // changing the score display
 
-                if(this.score === 1){              // end game after collecting X items
+                if(this.score === 10){              // END GAME AFTER COLLECTING X ITEMS
                     this.gameIsOver = true;
                 }
             }
@@ -77,6 +83,33 @@ class Game {
             // deleting the fallen item
             if(currentObstacle.top > 800){          
                 this.obstacles.splice(i,1)      // cut out the first item that passes the bottom in JS
+                i--;                            // need to take the i and move it back once
+                currentObstacle.element.remove();   // removes the img element from the html (element is the img)
+            }
+        }
+
+        // this moves all of the bad obstacles inside the this.badObstacles array:
+        for (let i=0; i<this.badObstacles.length; i++){
+            const currentObstacle = this.badObstacles[i];
+            currentObstacle.move();
+
+            // check if obstacle is colliding with the player 
+            if(this.player.didCollide(currentObstacle)){
+                this.badObstacles.splice(i,1)      // cut out the enemy item in js
+                i--;                        // need to take the i and move it back once
+                currentObstacle.element.remove();   // cut out the enemy item img
+
+                this.lives--;                               // losing life if touches enemy
+                this.livesElement.innerText = this.lives;
+
+                if(this.lives === 0){              // end game after losing all lives
+                    this.gameIsOver = true;
+                }
+            }
+
+            // deleting the fallen item
+            if(currentObstacle.top > 800){          
+                this.badObstacles.splice(i,1)      // cut out the first item that passes the bottom in JS
                 i--;                            // need to take the i and move it back once
                 currentObstacle.element.remove();   // removes the img element from the html (element is the img)
             }

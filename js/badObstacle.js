@@ -1,13 +1,15 @@
-class Obstacle {
+class BadObstacle {
     constructor(gameScreenElement) {
         // random position
+        this.possibleImages = ['./images/postman.png', './images/vacuum.png'];
         const maxLeft = 1100; // screen (1200) - Obstacle-width (60) - some space
         this.left = Math.floor(Math.random() * maxLeft);
         this.top = -60; //-300;
-        this.width = 60;
-        this.height = 60;
+        this.width = 90;
+        this.height = 110;
+        this.randomImageIndex = Math.floor(Math.random() * this.possibleImages.length)
         this.element = document.createElement("img");
-        this.element.src = "./images/bone.png";
+        this.element.src = this.possibleImages[this.randomImageIndex];
         this.element.style.position = "absolute";
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;
@@ -18,7 +20,7 @@ class Obstacle {
     }
     
     move () {
-        this.top += 4;          // moving speed of obstacle
+        this.top += 4;          // MOVING SPEED OF OBSTACLE
         this.updatePosition();
     }
 
