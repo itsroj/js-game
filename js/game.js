@@ -18,6 +18,7 @@ class Game {
         this.width = 1200;
         this.obstacles = []; // [new Obstacle(this.gameScreenElement)];    // array of obstacles
         this.badObstacles = [];
+        this.powerObstacles = [];
         this.score = 0;
         this.lives = 3;
         this.gameIsOver = false;
@@ -50,6 +51,10 @@ class Game {
             this.badObstacles.push(new BadObstacle(this.gameScreenElement));
         }
 
+        if(this.counter % 300 === 0){        // pushes a power obstacle eg. every second if 60 === 0
+            this.powerObstacles.push(new PowerObstacle(this.gameScreenElement));
+        }
+
         this.update();
 
         // check if the game is over
@@ -80,7 +85,6 @@ class Game {
                     this.gameIsOver = true;
                 }
             }
-
             // deleting the fallen item
             if(currentObstacle.top > 800){          
                 this.obstacles.splice(i,1)      // cut out the first item that passes the bottom in JS
@@ -116,6 +120,28 @@ class Game {
                 currentObstacle.element.remove();   // removes the img element from the html (element is the img)
             }
         }
+
+        for (let i=0; i<this.powerObstacles.length; i++){
+            const currentObstacle = this.powerObstacles[i];
+            currentObstacle.move();
+
+
+        // power up item
+        if(this.player.didCollide(currentObstacle)){
+            this.player.eat.play();  // play eating sound
+            this.powerObstacles.splice(i,1)      // cut out the enemy item in js
+            i--;                        // need to take the i and move it back once
+            currentObstacle.element.remove();   // cut out the enemy item img
+
+            this.score += 2;                       // collecting points after catching item
+            this.scoreElement.innerText = this.score; // changing the score display
+        }
+        // deleting the fallen item
+        if(currentObstacle.top > 800){          
+            currentObstacle.element.remove();   // removes the img element from the html (element is the img)
+        }
+    }
+
     }
 
     gameOver(){
