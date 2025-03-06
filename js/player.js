@@ -10,6 +10,8 @@ class Player {
         this.eat.volume = 0.1; // not so loud
         this.bark = new Audio("./assets/dog-barks.wav");
         this.bark.volume = 0.1; // not so loud
+        this.powerup = new Audio ("./assets/power-up.mp3");
+        this.powerup.volume = 0.1; // not so loud
         // image
         this.element = document.createElement('img');
         this.element.src = playerImageSrc;

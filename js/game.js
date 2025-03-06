@@ -128,7 +128,7 @@ class Game {
 
         // power up item
         if(this.player.didCollide(currentObstacle)){
-            this.player.eat.play();  // play eating sound
+            this.player.powerup.play();  // play eating sound
             this.powerObstacles.splice(i,1)      // cut out the enemy item in js
             i--;                        // need to take the i and move it back once
             currentObstacle.element.remove();   // cut out the enemy item img

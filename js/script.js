@@ -62,7 +62,6 @@ window.onload = function () {  // means: call this function when all the assets 
             const minutes = Math.floor(ourNewGame.timeRemaining / 60).toString().padStart(2, "0");
             const seconds = (ourNewGame.timeRemaining % 60).toString().padStart(2, "0");
             timeRemainingContainer.innerText = `${minutes}:${seconds}`;
-            console.log(ourNewGame.timeRemaining)
             if (ourNewGame.timeRemaining <= 0 || ourNewGame.lives === 0) {
                 // Add gameOver function or handle end of game
                 gameOver();
@@ -83,7 +82,6 @@ window.onload = function () {  // means: call this function when all the assets 
         // Show game over screen
         gameOverScreenElement.style.display = 'flex';
         seeResult();
-        console.log("game over hello")
     }
 
     function seeResult(){
