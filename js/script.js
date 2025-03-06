@@ -28,10 +28,10 @@ window.onload = function () {  // means: call this function when all the assets 
 // keyboard event listeners
     window.addEventListener('keydown', (event) => {
         if (event.code === "ArrowLeft") {
-            ourNewGame.player.directionX = -16;          // MOVING SPEED OF PLAYER
+            ourNewGame.player.directionX = -18;          // MOVING SPEED OF PLAYER
         }
         else if (event.code === "ArrowRight") {
-            ourNewGame.player.directionX = 16;           // MOVING SPEED OF PLAYER
+            ourNewGame.player.directionX = 18;           // MOVING SPEED OF PLAYER
         }
     })
 
@@ -92,6 +92,7 @@ window.onload = function () {  // means: call this function when all the assets 
         // Show game over screen
         gameOverScreenElement.style.display = 'flex';
         seeResult();
+        ourNewGame.gameover.play();
     }
 
     function seeResult(){

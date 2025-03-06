@@ -17,9 +17,13 @@ class Game {
         this.themesong = new Audio("./assets/indie-game-soundtrack.mp3");
         this.themesong.volume = 0.1; // not so loud
         this.themesong.loop = true; 
+        this.gamestart = new Audio("./assets/game-start.mp3");
+        this.gamestart.volume = 0.1; 
+        this.gameover = new Audio("./assets/game-over-sound.mp3");
+        this.gameover.volume = 0.1; 
         this.height = 800;
         this.width = 1200;
-        this.obstacles = []; // [new Obstacle(this.gameScreenElement)];    // array of obstacles
+        this.obstacles = []; // array of obstacles
         this.badObstacles = [];
         this.powerObstacles = [];
         this.score = 0;
@@ -28,11 +32,6 @@ class Game {
         this.gameIntervalId = null; 
         this.gameLoopFrequency = Math.round(1000/60);
         this.counter = 0;
-
-
-        // document.getElementById("audio-btn").addEventListener("click", () => {
-        //     this.themesong.play();
-        // });
     }
 
     start() {
@@ -46,6 +45,7 @@ class Game {
         this.gameIntervalId = setInterval(() => {
             this.gameLoop();
         }, this.gameLoopFrequency);
+        this.player.bark.play();
         this.themesong.play();
     }
 
@@ -158,6 +158,7 @@ class Game {
         this.gameScreenElement.style.display = 'none';              // hide the game screen
         document.getElementById("game-container").style.display = 'none'; // hide game container
         this.gameOverScreenElement.style.display = 'flex';         // show the game over screen
-        this.themesong.pause();
+        // this.themesong.pause();      // stops the music at game-end // but turned it off, since I want the music to continue
+        this.gameover.play();
     }
 }

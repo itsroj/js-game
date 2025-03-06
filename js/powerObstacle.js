@@ -1,11 +1,12 @@
 class PowerObstacle {
     constructor(gameScreenElement) {
         // random position
+        const minLeft = 100; // min px distance from left edge
         const maxLeft = 1100; // screen (1200) - Obstacle-width - some space cause of png
-        this.left = Math.floor(Math.random() * maxLeft);
+        this.left = Math.floor(minLeft + Math.random() * (maxLeft - minLeft)); // random position between minLeft & maxLeft
         this.top = -60; //-300;
-        this.width = 60;
-        this.height = 60;
+        this.width = 70;
+        this.height = 100;
         this.element = document.createElement("img");
         this.element.src = "./images/flash.png";
         this.element.style.position = "absolute";

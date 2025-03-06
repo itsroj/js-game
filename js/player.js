@@ -22,7 +22,6 @@ class Player {
         this.element.style.width = `${playerWidth}px`;
         this.element.style.height = `${playerHeight}px`;
 
-
         // after creating the img element and setting the properties
         gameScreenElement.appendChild(this.element)       // add it to the game screen
     }
