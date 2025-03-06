@@ -2,8 +2,14 @@ class Obstacle {
     constructor(gameScreenElement) {
         // random position
         this.possibleImages = ['./images/bone.png', './images/apple.png'];
-        const maxLeft = 1100; // screen (1200) - Obstacle-width (60) - some space
-        this.left = Math.floor(Math.random() * maxLeft);
+        
+        // Add a minimum left position to prevent spawning too far left
+        const minLeft = 100; // Minimum pixel distance from left edge
+        const maxLeft = 1000; // Maximum pixel distance from left edge
+        
+        // Generate random position between minLeft and maxLeft
+        this.left = Math.floor(minLeft + Math.random() * (maxLeft - minLeft));
+        
         this.top = -60; //-300;
         this.width = 60;
         this.height = 60;

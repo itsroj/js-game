@@ -14,6 +14,9 @@ class Game {
             150, 
             150, 
             "./images/player3.png"); // constructor of Player inside the parenthesis
+        this.themesong = new Audio("./assets/indie-game-soundtrack.mp3");
+        this.themesong.volume = 0.1; // not so loud
+        this.themesong.loop = true; 
         this.height = 800;
         this.width = 1200;
         this.obstacles = []; // [new Obstacle(this.gameScreenElement)];    // array of obstacles
@@ -25,6 +28,11 @@ class Game {
         this.gameIntervalId = null; 
         this.gameLoopFrequency = Math.round(1000/60);
         this.counter = 0;
+
+
+        // document.getElementById("audio-btn").addEventListener("click", () => {
+        //     this.themesong.play();
+        // });
     }
 
     start() {
@@ -38,6 +46,7 @@ class Game {
         this.gameIntervalId = setInterval(() => {
             this.gameLoop();
         }, this.gameLoopFrequency);
+        this.themesong.play();
     }
 
     gameLoop() {
@@ -81,9 +90,9 @@ class Game {
                 this.score++;                       // collecting points after catching item
                 this.scoreElement.innerText = this.score; // changing the score display
 
-                if(this.score === 10){              // END GAME AFTER COLLECTING X ITEMS
-                    this.gameIsOver = true;
-                }
+                // if(this.score === 10){              // END GAME AFTER COLLECTING X ITEMS
+                //     this.gameIsOver = true;
+                // }
             }
             // deleting the fallen item
             if(currentObstacle.top > 800){          
@@ -149,5 +158,6 @@ class Game {
         this.gameScreenElement.style.display = 'none';              // hide the game screen
         document.getElementById("game-container").style.display = 'none'; // hide game container
         this.gameOverScreenElement.style.display = 'flex';         // show the game over screen
+        this.themesong.pause();
     }
 }

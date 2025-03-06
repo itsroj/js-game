@@ -3,6 +3,7 @@
 window.onload = function () {  // means: call this function when all the assets load
     const startButtonElement = document.getElementById("start-button");
     const restartButtonElement = document.getElementById("restart-button");
+    const audioButtonElement = document.getElementById("audio-btn");
     let ourNewGame;
 
 // all event listeners 
@@ -14,6 +15,15 @@ window.onload = function () {  // means: call this function when all the assets 
     restartButtonElement.addEventListener("click", () =>{
         window.location.reload();               // "refresh" the page
     })
+
+    audioButtonElement.addEventListener("click", () => {
+        if (ourNewGame.themesong.paused) {
+            ourNewGame.themesong.play();
+        } else {
+            ourNewGame.themesong.pause();
+        }
+    })
+
 
 // keyboard event listeners
     window.addEventListener('keydown', (event) => {

@@ -1,7 +1,7 @@
 class PowerObstacle {
     constructor(gameScreenElement) {
         // random position
-        const maxLeft = 1100; // screen (1200) - Obstacle-width (60) - some space
+        const maxLeft = 1100; // screen (1200) - Obstacle-width - some space cause of png
         this.left = Math.floor(Math.random() * maxLeft);
         this.top = -60; //-300;
         this.width = 60;

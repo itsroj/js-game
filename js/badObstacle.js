@@ -2,7 +2,7 @@ class BadObstacle {
     constructor(gameScreenElement) {
         // random position
         this.possibleImages = ['./images/postman.png', './images/vacuum.png'];
-        const maxLeft = 1100; // screen (1200) - Obstacle-width (60) - some space
+        const maxLeft = 1100; // screen (1200) - Obstacle-width - some space cause of png
         this.left = Math.floor(Math.random() * maxLeft);
         this.top = -60; //-300;
         this.width = 90;
