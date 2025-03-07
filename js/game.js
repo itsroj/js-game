@@ -14,7 +14,7 @@ class Game {
             150, 
             150, 
             "./images/player3.png"); // constructor of Player inside the parenthesis
-        this.themesong = new Audio("./assets/indie-game-soundtrack.mp3");
+        this.themesong = new Audio("./assets/themesong2.mp3"); // indie-game-soundtrack.mp3
         this.themesong.volume = 0.1; // not so loud
         this.themesong.loop = true; 
         this.gamestart = new Audio("./assets/game-start.mp3");

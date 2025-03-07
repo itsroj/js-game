@@ -83,6 +83,7 @@ body {
     font-size: 18px;
     margin: 20px;
     background-color: #4CAF50;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     border-radius: 5px;
@@ -205,10 +206,6 @@ body {
     color: white;
     font-size: 2em;
   }
-
-  /* #game-end .logo-img {
-    display: none; /* hiding the img element, since we use the background 
-  } */
   
   .game-intro p {
     font-size: 18px;

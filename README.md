@@ -4,6 +4,24 @@ A fun browser-based game where you help Yuki collect treats while avoiding her f
 Game Description
 Yuki Unleashed is a collecting game where players control Yuki to catch bones and apples while avoiding enemies like the postman and vacuum cleaner. You can also collect power up items.
 
+MVP:
+- go left and right
+- collect items and increase the score
+- collide with enemies and lose health
+
+Backlog:
+- adding more and different obstacles (different images and functions)
+- power up item with DC (was chosen to be in the DC Team)
+- high score at end screen
+- make buttons as bones
+- switch between characters
+- build more level
+
+States y States Transitions:
+- Start Screen
+- Game Screen
+- Game End Screen
+
 How to Play
 Use the left and right arrow keys to move Yuki
 Collect as many bones and apples as possible within 1 minute
