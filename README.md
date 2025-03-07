@@ -16,6 +16,7 @@ Backlog:
 - make buttons as bones
 - switch between characters
 - build more level
+- let the character switch sides if moved to left and right (better animated)
 
 States y States Transitions:
 - Start Screen
